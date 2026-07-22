@@ -1,0 +1,26 @@
+.env
+file.env
+venv/
+.venv/
+__pycache__/
+*.pyc
+.DS_Store
+
+# Extraction caches
+data/extracted*.jsonl
+
+# Full research datasets - keep local
+data/all_feedback.csv
+data/appstore_reviews.csv
+data/competitor_reviews.csv
+data/discovery_candidates.csv
+data/enriched_discovery_final.csv
+data/enriched_discovery_v3.csv
+data/enriched_discovery_v4.csv
+data/enriched_feedback.csv
+data/enriched_feedback_v2.csv
+data/playstore_reviews.csv
+data/youtube_comments.csv
+
+# Claude intermediate extraction caches
+data/extracted*.jsonl

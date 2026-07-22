@@ -1,0 +1,6 @@
+google-play-scraper==1.2.7
+praw==8.0.2
+requests>=2.31
+pandas>=2.0
+anthropic>=0.40
+python-dotenv>=1.0

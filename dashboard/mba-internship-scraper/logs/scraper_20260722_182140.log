@@ -1,0 +1,8 @@
+2026-07-22 11:21:40,216 INFO scrapers.base — Logging to /Users/snigdhanagpal/Downloads/blinkit-engine/dashboard/mba-internship-scraper/logs/scraper_20260722_182140.log
+2026-07-22 11:21:40,267 INFO __main__ — Test mode: scraping 6 companies
+2026-07-22 11:21:40,877 INFO scrapers.greenhouse_scraper — BCG (Greenhouse): fetched 4 jobs
+2026-07-22 11:21:41,807 INFO scrapers.ashby_scraper — OpenAI (Ashby): fetched 732 jobs
+2026-07-22 11:21:42,862 INFO scrapers.greenhouse_scraper — Databricks (Greenhouse): fetched 798 jobs
+2026-07-22 11:21:43,684 INFO scrapers.ashby_scraper — Notion (Ashby): fetched 139 jobs
+2026-07-22 11:21:44,468 INFO scrapers.greenhouse_scraper — Stripe (Greenhouse): fetched 525 jobs
+2026-07-22 11:21:45,185 INFO scrapers.greenhouse_scraper — Brex (Greenhouse): fetched 265 jobs

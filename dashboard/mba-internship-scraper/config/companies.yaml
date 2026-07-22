@@ -1,0 +1,1709 @@
+# Greenhouse board tokens — Summer 2027 MBA internship search
+#
+# API endpoint format:
+#   https://boards-api.greenhouse.io/v1/boards/{board_token}/jobs
+#
+# Fields:
+#   board_token          — slug from boards.greenhouse.io/{board_token}
+#   enabled              — true only when greenhouse_verified is true
+#   greenhouse_verified  — confirmed via live API probe
+#   job_count            — published jobs at last verification
+#
+# Re-verify tokens: python scripts/validate_boards.py --all
+# Discover new tokens: python scripts/discover_boards.py
+
+settings:
+  request_timeout_seconds: 20
+  delay_between_requests_seconds: 0.5
+  user_agent: 'MBA-Internship-Scraper/1.0 (personal job alert; contact: snagpal1997@gmail.com)'
+  api_base: https://boards-api.greenhouse.io/v1/boards/{board_token}/jobs
+companies:
+- name: McKinsey
+  tier: 1
+  board_token: mckinsey
+  enabled: false
+  greenhouse_verified: false
+  api_url: https://boards-api.greenhouse.io/v1/boards/mckinsey/jobs
+  notes: Uses mckinsey.com/careers — not Greenhouse
+- name: BCG
+  tier: 1
+  board_token: bcg
+  enabled: true
+  greenhouse_verified: true
+  api_url: https://boards-api.greenhouse.io/v1/boards/bcg/jobs
+  job_count: 4
+- name: Bain
+  tier: 1
+  board_token: bain
+  enabled: false
+  greenhouse_verified: false
+  api_url: https://boards-api.greenhouse.io/v1/boards/bain/jobs
+  notes: Uses bain.com/careers — not Greenhouse
+- name: EY-Parthenon
+  tier: 1
+  board_token: eyparthenon
+  enabled: false
+  greenhouse_verified: false
+  api_url: https://boards-api.greenhouse.io/v1/boards/eyparthenon/jobs
+  notes: Not on Greenhouse (API probe returned 404)
+- name: Strategy&
+  tier: 1
+  board_token: strategyand
+  enabled: false
+  greenhouse_verified: false
+  api_url: https://boards-api.greenhouse.io/v1/boards/strategyand/jobs
+  notes: Not on Greenhouse (API probe returned 404)
+- name: Kearney
+  tier: 1
+  board_token: kearney
+  enabled: false
+  greenhouse_verified: false
+  api_url: https://boards-api.greenhouse.io/v1/boards/kearney/jobs
+  notes: Not on Greenhouse (API probe returned 404)
+- name: LEK Consulting
+  tier: 1
+  board_token: lekconsulting
+  enabled: false
+  greenhouse_verified: false
+  api_url: https://boards-api.greenhouse.io/v1/boards/lekconsulting/jobs
+  notes: Not on Greenhouse (API probe returned 404)
+- name: Oliver Wyman
+  tier: 1
+  board_token: oliverwyman
+  enabled: false
+  greenhouse_verified: false
+  api_url: https://boards-api.greenhouse.io/v1/boards/oliverwyman/jobs
+  notes: Not on Greenhouse (API probe returned 404)
+- name: Accenture Strategy
+  tier: 1
+  board_token: accenture
+  enabled: false
+  greenhouse_verified: false
+  api_url: https://boards-api.greenhouse.io/v1/boards/accenture/jobs
+  notes: Uses accenture.com careers — not Greenhouse (404)
+- name: Deloitte
+  tier: 1
+  board_token: deloitte
+  enabled: false
+  greenhouse_verified: false
+  api_url: https://boards-api.greenhouse.io/v1/boards/deloitte/jobs
+  notes: Not on Greenhouse (API probe returned 404)
+- name: PwC
+  tier: 1
+  board_token: pwc
+  enabled: false
+  greenhouse_verified: false
+  api_url: https://boards-api.greenhouse.io/v1/boards/pwc/jobs
+  notes: Not on Greenhouse (API probe returned 404)
+- name: KPMG
+  tier: 1
+  board_token: kpmg
+  enabled: false
+  greenhouse_verified: false
+  api_url: https://boards-api.greenhouse.io/v1/boards/kpmg/jobs
+  notes: Not on Greenhouse (API probe returned 404)
+- name: Google
+  tier: 1
+  board_token: google
+  enabled: false
+  greenhouse_verified: false
+  api_url: https://boards-api.greenhouse.io/v1/boards/google/jobs
+  notes: Uses careers.google.com — not Greenhouse
+- name: Microsoft
+  tier: 1
+  board_token: microsoft
+  enabled: false
+  greenhouse_verified: false
+  api_url: https://boards-api.greenhouse.io/v1/boards/microsoft/jobs
+  notes: Uses careers.microsoft.com — not Greenhouse
+- name: Meta
+  tier: 1
+  board_token: meta
+  enabled: false
+  greenhouse_verified: false
+  api_url: https://boards-api.greenhouse.io/v1/boards/meta/jobs
+  notes: Uses metacareers.com — not Greenhouse
+- name: Amazon
+  tier: 1
+  board_token: amazon
+  enabled: false
+  greenhouse_verified: false
+  api_url: https://boards-api.greenhouse.io/v1/boards/amazon/jobs
+  notes: Uses amazon.jobs — not Greenhouse
+- name: Apple
+  tier: 1
+  board_token: apple
+  enabled: false
+  greenhouse_verified: false
+  api_url: https://boards-api.greenhouse.io/v1/boards/apple/jobs
+  notes: Uses jobs.apple.com — not Greenhouse
+- name: Adobe
+  tier: 1
+  board_token: adobe
+  enabled: false
+  greenhouse_verified: false
+  api_url: https://boards-api.greenhouse.io/v1/boards/adobe/jobs
+  notes: Not on Greenhouse (API probe returned 404)
+- name: Salesforce
+  tier: 1
+  board_token: salesforce
+  enabled: false
+  greenhouse_verified: false
+  api_url: https://boards-api.greenhouse.io/v1/boards/salesforce/jobs
+  notes: Not on Greenhouse (API probe returned 404)
+- name: LinkedIn
+  tier: 1
+  board_token: linkedin
+  enabled: true
+  greenhouse_verified: true
+  api_url: https://boards-api.greenhouse.io/v1/boards/linkedin/jobs
+  job_count: 53
+  notes: Greenhouse board exists but may be subset of roles
+- name: Netflix
+  tier: 1
+  board_token: netflix
+  enabled: false
+  greenhouse_verified: false
+  api_url: https://boards-api.greenhouse.io/v1/boards/netflix/jobs
+  notes: Not on Greenhouse (API probe returned 404)
+- name: Spotify
+  tier: 1
+  board_token: spotify
+  enabled: false
+  greenhouse_verified: false
+  api_url: https://boards-api.greenhouse.io/v1/boards/spotify/jobs
+  notes: Not on Greenhouse (API probe returned 404)
+- name: Uber
+  tier: 1
+  board_token: uber
+  enabled: false
+  greenhouse_verified: false
+  api_url: https://boards-api.greenhouse.io/v1/boards/uber/jobs
+  notes: Not on Greenhouse (API probe returned 404)
+- name: Airbnb
+  tier: 1
+  board_token: airbnb
+  enabled: true
+  greenhouse_verified: true
+  api_url: https://boards-api.greenhouse.io/v1/boards/airbnb/jobs
+  job_count: 200
+- name: OpenAI
+  tier: 1
+  board_token: openai
+  enabled: false
+  greenhouse_verified: false
+  api_url: https://boards-api.greenhouse.io/v1/boards/openai/jobs
+  notes: Uses openai.com/careers — not Greenhouse
+- name: Anthropic
+  tier: 1
+  board_token: anthropic
+  enabled: true
+  greenhouse_verified: true
+  api_url: https://boards-api.greenhouse.io/v1/boards/anthropic/jobs
+  job_count: 410
+- name: Perplexity
+  tier: 1
+  board_token: perplexity
+  enabled: false
+  greenhouse_verified: false
+  api_url: https://boards-api.greenhouse.io/v1/boards/perplexity/jobs
+  notes: Not on Greenhouse (API probe returned 404)
+- name: xAI
+  tier: 1
+  board_token: xai
+  enabled: true
+  greenhouse_verified: true
+  api_url: https://boards-api.greenhouse.io/v1/boards/xai/jobs
+  job_count: 219
+- name: Scale AI
+  tier: 1
+  board_token: scaleai
+  enabled: true
+  greenhouse_verified: true
+  api_url: https://boards-api.greenhouse.io/v1/boards/scaleai/jobs
+  job_count: 193
+- name: Cohere
+  tier: 1
+  board_token: cohere
+  enabled: false
+  greenhouse_verified: false
+  api_url: https://boards-api.greenhouse.io/v1/boards/cohere/jobs
+  notes: Not on Greenhouse (API probe returned 404)
+- name: Mistral AI
+  tier: 1
+  board_token: mistral
+  enabled: false
+  greenhouse_verified: false
+  api_url: https://boards-api.greenhouse.io/v1/boards/mistral/jobs
+  notes: Not on Greenhouse (API probe returned 404)
+- name: Glean
+  tier: 1
+  board_token: gleanwork
+  enabled: true
+  greenhouse_verified: true
+  api_url: https://boards-api.greenhouse.io/v1/boards/gleanwork/jobs
+  job_count: 119
+  notes: Token is gleanwork (not glean)
+- name: Writer
+  tier: 1
+  board_token: writer
+  enabled: false
+  greenhouse_verified: false
+  api_url: https://boards-api.greenhouse.io/v1/boards/writer/jobs
+  notes: Not on Greenhouse (API probe returned 404)
+- name: Harvey
+  tier: 1
+  board_token: harvey
+  enabled: false
+  greenhouse_verified: false
+  api_url: https://boards-api.greenhouse.io/v1/boards/harvey/jobs
+  notes: Greenhouse board verified but currently 0 published jobs
+- name: Sierra
+  tier: 1
+  board_token: sierra
+  enabled: false
+  greenhouse_verified: false
+  api_url: https://boards-api.greenhouse.io/v1/boards/sierra/jobs
+  notes: Not on Greenhouse (API probe returned 404)
+- name: Runway
+  tier: 1
+  board_token: runway
+  enabled: false
+  greenhouse_verified: false
+  api_url: https://boards-api.greenhouse.io/v1/boards/runway/jobs
+  notes: Not on Greenhouse (API probe returned 404)
+- name: ElevenLabs
+  tier: 1
+  board_token: elevenlabs
+  enabled: false
+  greenhouse_verified: false
+  api_url: https://boards-api.greenhouse.io/v1/boards/elevenlabs/jobs
+  notes: Not on Greenhouse (API probe returned 404)
+- name: Character.AI
+  tier: 1
+  board_token: character
+  enabled: false
+  greenhouse_verified: false
+  api_url: https://boards-api.greenhouse.io/v1/boards/character/jobs
+  notes: Not on Greenhouse (API probe returned 404)
+- name: Cursor
+  tier: 1
+  board_token: cursor
+  enabled: false
+  greenhouse_verified: false
+  api_url: https://boards-api.greenhouse.io/v1/boards/cursor/jobs
+  notes: Not on Greenhouse (API probe returned 404)
+- name: Anysphere
+  tier: 1
+  board_token: anysphere
+  enabled: false
+  greenhouse_verified: false
+  api_url: https://boards-api.greenhouse.io/v1/boards/anysphere/jobs
+  notes: Not on Greenhouse (API probe returned 404)
+- name: Windsurf
+  tier: 1
+  board_token: windsurf
+  enabled: false
+  greenhouse_verified: false
+  api_url: https://boards-api.greenhouse.io/v1/boards/windsurf/jobs
+  notes: Not on Greenhouse (API probe returned 404)
+- name: Together AI
+  tier: 1
+  board_token: togetherai
+  enabled: true
+  greenhouse_verified: true
+  api_url: https://boards-api.greenhouse.io/v1/boards/togetherai/jobs
+  job_count: 59
+  notes: Token is togetherai
+- name: Hugging Face
+  tier: 1
+  board_token: huggingface
+  enabled: false
+  greenhouse_verified: false
+  api_url: https://boards-api.greenhouse.io/v1/boards/huggingface/jobs
+  notes: Not on Greenhouse (API probe returned 404)
+- name: Weights & Biases
+  tier: 1
+  board_token: wandb
+  enabled: false
+  greenhouse_verified: false
+  api_url: https://boards-api.greenhouse.io/v1/boards/wandb/jobs
+  notes: Not on Greenhouse (API probe returned 404)
+- name: Tempus AI
+  tier: 1
+  board_token: tempus
+  enabled: false
+  greenhouse_verified: false
+  api_url: https://boards-api.greenhouse.io/v1/boards/tempus/jobs
+  notes: Not on Greenhouse (API probe returned 404)
+- name: Bolo AI
+  tier: 1
+  board_token: boloai
+  enabled: true
+  greenhouse_verified: true
+  api_url: https://boards-api.greenhouse.io/v1/boards/boloai/jobs
+  job_count: 4
+- name: Databricks
+  tier: 2
+  board_token: databricks
+  enabled: true
+  greenhouse_verified: true
+  api_url: https://boards-api.greenhouse.io/v1/boards/databricks/jobs
+  job_count: 798
+- name: Snowflake
+  tier: 2
+  board_token: snowflake
+  enabled: false
+  greenhouse_verified: false
+  api_url: https://boards-api.greenhouse.io/v1/boards/snowflake/jobs
+  notes: Not on Greenhouse (API probe returned 404)
+- name: Datadog
+  tier: 2
+  board_token: datadog
+  enabled: true
+  greenhouse_verified: true
+  api_url: https://boards-api.greenhouse.io/v1/boards/datadog/jobs
+  job_count: 415
+- name: MongoDB
+  tier: 2
+  board_token: mongodb
+  enabled: true
+  greenhouse_verified: true
+  api_url: https://boards-api.greenhouse.io/v1/boards/mongodb/jobs
+  job_count: 401
+- name: Confluent
+  tier: 2
+  board_token: confluent
+  enabled: false
+  greenhouse_verified: false
+  api_url: https://boards-api.greenhouse.io/v1/boards/confluent/jobs
+  notes: Not on Greenhouse (API probe returned 404)
+- name: Cloudflare
+  tier: 2
+  board_token: cloudflare
+  enabled: true
+  greenhouse_verified: true
+  api_url: https://boards-api.greenhouse.io/v1/boards/cloudflare/jobs
+  job_count: 264
+- name: HubSpot
+  tier: 2
+  board_token: hubspot
+  enabled: true
+  greenhouse_verified: true
+  api_url: https://boards-api.greenhouse.io/v1/boards/hubspot/jobs
+  job_count: 0
+  notes: 'Greenhouse board verified (token: hubspot)'
+- name: Twilio
+  tier: 2
+  board_token: twilio
+  enabled: true
+  greenhouse_verified: true
+  api_url: https://boards-api.greenhouse.io/v1/boards/twilio/jobs
+  job_count: 177
+- name: GitLab
+  tier: 2
+  board_token: gitlab
+  enabled: true
+  greenhouse_verified: true
+  api_url: https://boards-api.greenhouse.io/v1/boards/gitlab/jobs
+  job_count: 180
+- name: GitHub
+  tier: 2
+  board_token: github
+  enabled: false
+  greenhouse_verified: false
+  api_url: https://boards-api.greenhouse.io/v1/boards/github/jobs
+  notes: Uses github.com/careers — not Greenhouse
+- name: HashiCorp
+  tier: 2
+  board_token: hashicorp
+  enabled: false
+  greenhouse_verified: false
+  api_url: https://boards-api.greenhouse.io/v1/boards/hashicorp/jobs
+  notes: Not on Greenhouse (API probe returned 404)
+- name: Elastic
+  tier: 2
+  board_token: elastic
+  enabled: true
+  greenhouse_verified: true
+  api_url: https://boards-api.greenhouse.io/v1/boards/elastic/jobs
+  job_count: 194
+- name: Okta
+  tier: 2
+  board_token: okta
+  enabled: true
+  greenhouse_verified: true
+  api_url: https://boards-api.greenhouse.io/v1/boards/okta/jobs
+  job_count: 351
+- name: Box
+  tier: 2
+  board_token: boxinc
+  enabled: true
+  greenhouse_verified: true
+  api_url: https://boards-api.greenhouse.io/v1/boards/boxinc/jobs
+  job_count: 124
+  notes: Token is boxinc (not box)
+- name: New Relic
+  tier: 2
+  board_token: newrelic
+  enabled: true
+  greenhouse_verified: true
+  api_url: https://boards-api.greenhouse.io/v1/boards/newrelic/jobs
+  job_count: 62
+- name: Splunk
+  tier: 2
+  board_token: splunk
+  enabled: false
+  greenhouse_verified: false
+  api_url: https://boards-api.greenhouse.io/v1/boards/splunk/jobs
+  notes: Not on Greenhouse (API probe returned 404)
+- name: PagerDuty
+  tier: 2
+  board_token: pagerduty
+  enabled: true
+  greenhouse_verified: true
+  api_url: https://boards-api.greenhouse.io/v1/boards/pagerduty/jobs
+  job_count: 17
+- name: Zendesk
+  tier: 2
+  board_token: zendesk
+  enabled: false
+  greenhouse_verified: false
+  api_url: https://boards-api.greenhouse.io/v1/boards/zendesk/jobs
+  notes: Not on Greenhouse (API probe returned 404)
+- name: DocuSign
+  tier: 2
+  board_token: docusign
+  enabled: false
+  greenhouse_verified: false
+  api_url: https://boards-api.greenhouse.io/v1/boards/docusign/jobs
+  notes: Not on Greenhouse (API probe returned 404)
+- name: Asana
+  tier: 2
+  board_token: asana
+  enabled: true
+  greenhouse_verified: true
+  api_url: https://boards-api.greenhouse.io/v1/boards/asana/jobs
+  job_count: 146
+- name: Notion
+  tier: 2
+  board_token: notion
+  enabled: false
+  greenhouse_verified: false
+  api_url: https://boards-api.greenhouse.io/v1/boards/notion/jobs
+  notes: Uses ashby/notion careers — not Greenhouse
+- name: Canva
+  tier: 2
+  board_token: canva
+  enabled: false
+  greenhouse_verified: false
+  api_url: https://boards-api.greenhouse.io/v1/boards/canva/jobs
+  notes: Not on Greenhouse (API probe returned 404)
+- name: Figma
+  tier: 2
+  board_token: figma
+  enabled: true
+  greenhouse_verified: true
+  api_url: https://boards-api.greenhouse.io/v1/boards/figma/jobs
+  job_count: 172
+- name: Miro
+  tier: 2
+  board_token: miro
+  enabled: false
+  greenhouse_verified: false
+  api_url: https://boards-api.greenhouse.io/v1/boards/miro/jobs
+  notes: Not on Greenhouse (API probe returned 404)
+- name: Smartsheet
+  tier: 2
+  board_token: smartsheet
+  enabled: true
+  greenhouse_verified: true
+  api_url: https://boards-api.greenhouse.io/v1/boards/smartsheet/jobs
+  job_count: 102
+- name: Alteryx
+  tier: 2
+  board_token: alteryx
+  enabled: false
+  greenhouse_verified: false
+  api_url: https://boards-api.greenhouse.io/v1/boards/alteryx/jobs
+  notes: Not on Greenhouse (API probe returned 404)
+- name: Celonis
+  tier: 2
+  board_token: celonis
+  enabled: true
+  greenhouse_verified: true
+  api_url: https://boards-api.greenhouse.io/v1/boards/celonis/jobs
+  job_count: 228
+- name: C3 AI
+  tier: 2
+  board_token: c3ai
+  enabled: false
+  greenhouse_verified: false
+  api_url: https://boards-api.greenhouse.io/v1/boards/c3ai/jobs
+  notes: Not on Greenhouse (API probe returned 404)
+- name: Atlassian
+  tier: 2
+  board_token: atlassian
+  enabled: false
+  greenhouse_verified: false
+  api_url: https://boards-api.greenhouse.io/v1/boards/atlassian/jobs
+  notes: Not on Greenhouse (API probe returned 404)
+- name: ServiceNow
+  tier: 2
+  board_token: servicenow
+  enabled: false
+  greenhouse_verified: false
+  api_url: https://boards-api.greenhouse.io/v1/boards/servicenow/jobs
+  notes: Not on Greenhouse (API probe returned 404)
+- name: Intuit
+  tier: 2
+  board_token: intuit
+  enabled: false
+  greenhouse_verified: false
+  api_url: https://boards-api.greenhouse.io/v1/boards/intuit/jobs
+  notes: Not on Greenhouse (API probe returned 404)
+- name: Workday
+  tier: 2
+  board_token: workday
+  enabled: false
+  greenhouse_verified: false
+  api_url: https://boards-api.greenhouse.io/v1/boards/workday/jobs
+  notes: Not on Greenhouse (API probe returned 404)
+- name: Workato
+  tier: 2
+  board_token: workato
+  enabled: true
+  greenhouse_verified: true
+  api_url: https://boards-api.greenhouse.io/v1/boards/workato/jobs
+  job_count: 156
+- name: Retool
+  tier: 2
+  board_token: retool
+  enabled: false
+  greenhouse_verified: false
+  api_url: https://boards-api.greenhouse.io/v1/boards/retool/jobs
+  notes: Not on Greenhouse (API probe returned 404)
+- name: Linear
+  tier: 2
+  board_token: linear
+  enabled: false
+  greenhouse_verified: false
+  api_url: https://boards-api.greenhouse.io/v1/boards/linear/jobs
+  notes: Not on Greenhouse (API probe returned 404)
+- name: Replit
+  tier: 2
+  board_token: replit
+  enabled: false
+  greenhouse_verified: false
+  api_url: https://boards-api.greenhouse.io/v1/boards/replit/jobs
+  notes: Not on Greenhouse (API probe returned 404)
+- name: Zapier
+  tier: 2
+  board_token: zapier
+  enabled: false
+  greenhouse_verified: false
+  api_url: https://boards-api.greenhouse.io/v1/boards/zapier/jobs
+  notes: Not on Greenhouse (API probe returned 404)
+- name: Typeform
+  tier: 2
+  board_token: typeform
+  enabled: true
+  greenhouse_verified: true
+  api_url: https://boards-api.greenhouse.io/v1/boards/typeform/jobs
+  job_count: 10
+- name: Superhuman
+  tier: 2
+  board_token: superhuman
+  enabled: false
+  greenhouse_verified: false
+  api_url: https://boards-api.greenhouse.io/v1/boards/superhuman/jobs
+  notes: Not on Greenhouse (API probe returned 404)
+- name: Jasper
+  tier: 2
+  board_token: jasper
+  enabled: false
+  greenhouse_verified: false
+  api_url: https://boards-api.greenhouse.io/v1/boards/jasper/jobs
+  notes: Not on Greenhouse (API probe returned 404)
+- name: Airtable
+  tier: 2
+  board_token: airtable
+  enabled: true
+  greenhouse_verified: true
+  api_url: https://boards-api.greenhouse.io/v1/boards/airtable/jobs
+  job_count: 37
+- name: Dropbox
+  tier: 2
+  board_token: dropbox
+  enabled: true
+  greenhouse_verified: true
+  api_url: https://boards-api.greenhouse.io/v1/boards/dropbox/jobs
+  job_count: 32
+- name: Slack
+  tier: 2
+  board_token: slack
+  enabled: false
+  greenhouse_verified: false
+  api_url: https://boards-api.greenhouse.io/v1/boards/slack/jobs
+  notes: Not on Greenhouse (API probe returned 404)
+- name: Clari
+  tier: 2
+  board_token: clari
+  enabled: false
+  greenhouse_verified: false
+  api_url: https://boards-api.greenhouse.io/v1/boards/clari/jobs
+  notes: Not on Greenhouse (API probe returned 404)
+- name: Qlik
+  tier: 2
+  board_token: qlik
+  enabled: false
+  greenhouse_verified: false
+  api_url: https://boards-api.greenhouse.io/v1/boards/qlik/jobs
+  notes: Not on Greenhouse (API probe returned 404)
+- name: DealCloud by Intapp
+  tier: 2
+  board_token: intapp
+  enabled: false
+  greenhouse_verified: false
+  api_url: https://boards-api.greenhouse.io/v1/boards/intapp/jobs
+  notes: Not on Greenhouse (API probe returned 404)
+- name: Foxit
+  tier: 2
+  board_token: foxit
+  enabled: false
+  greenhouse_verified: false
+  api_url: https://boards-api.greenhouse.io/v1/boards/foxit/jobs
+  notes: Not on Greenhouse (API probe returned 404)
+- name: Stripe
+  tier: 2
+  board_token: stripe
+  enabled: true
+  greenhouse_verified: true
+  api_url: https://boards-api.greenhouse.io/v1/boards/stripe/jobs
+  job_count: 525
+- name: Visa
+  tier: 2
+  board_token: visa
+  enabled: false
+  greenhouse_verified: false
+  api_url: https://boards-api.greenhouse.io/v1/boards/visa/jobs
+  notes: Not on Greenhouse (API probe returned 404)
+- name: Mastercard
+  tier: 2
+  board_token: mastercard
+  enabled: false
+  greenhouse_verified: false
+  api_url: https://boards-api.greenhouse.io/v1/boards/mastercard/jobs
+  notes: Not on Greenhouse (API probe returned 404)
+- name: Capital One
+  tier: 2
+  board_token: capitalone
+  enabled: false
+  greenhouse_verified: false
+  api_url: https://boards-api.greenhouse.io/v1/boards/capitalone/jobs
+  notes: Not on Greenhouse (API probe returned 404)
+- name: American Express
+  tier: 2
+  board_token: americanexpress
+  enabled: false
+  greenhouse_verified: false
+  api_url: https://boards-api.greenhouse.io/v1/boards/americanexpress/jobs
+  notes: Not on Greenhouse (API probe returned 404)
+- name: PayPal
+  tier: 2
+  board_token: paypal
+  enabled: false
+  greenhouse_verified: false
+  api_url: https://boards-api.greenhouse.io/v1/boards/paypal/jobs
+  notes: Not on Greenhouse (API probe returned 404)
+- name: Block
+  tier: 2
+  board_token: block
+  enabled: true
+  greenhouse_verified: true
+  api_url: https://boards-api.greenhouse.io/v1/boards/block/jobs
+  job_count: 206
+- name: Plaid
+  tier: 2
+  board_token: plaid
+  enabled: false
+  greenhouse_verified: false
+  api_url: https://boards-api.greenhouse.io/v1/boards/plaid/jobs
+  notes: Not on Greenhouse (API probe returned 404)
+- name: Brex
+  tier: 2
+  board_token: brex
+  enabled: true
+  greenhouse_verified: true
+  api_url: https://boards-api.greenhouse.io/v1/boards/brex/jobs
+  job_count: 265
+- name: Ramp
+  tier: 2
+  board_token: ramp
+  enabled: false
+  greenhouse_verified: false
+  api_url: https://boards-api.greenhouse.io/v1/boards/ramp/jobs
+  notes: Not on Greenhouse (API probe returned 404)
+- name: Rippling
+  tier: 2
+  board_token: rippling
+  enabled: false
+  greenhouse_verified: false
+  api_url: https://boards-api.greenhouse.io/v1/boards/rippling/jobs
+  notes: Not on Greenhouse (API probe returned 404)
+- name: Robinhood
+  tier: 2
+  board_token: robinhood
+  enabled: true
+  greenhouse_verified: true
+  api_url: https://boards-api.greenhouse.io/v1/boards/robinhood/jobs
+  job_count: 119
+- name: Coinbase
+  tier: 2
+  board_token: coinbase
+  enabled: true
+  greenhouse_verified: true
+  api_url: https://boards-api.greenhouse.io/v1/boards/coinbase/jobs
+  job_count: 155
+- name: Chime
+  tier: 2
+  board_token: chime
+  enabled: true
+  greenhouse_verified: true
+  api_url: https://boards-api.greenhouse.io/v1/boards/chime/jobs
+  job_count: 65
+- name: SoFi
+  tier: 2
+  board_token: sofi
+  enabled: true
+  greenhouse_verified: true
+  api_url: https://boards-api.greenhouse.io/v1/boards/sofi/jobs
+  job_count: 62
+- name: Affirm
+  tier: 2
+  board_token: affirm
+  enabled: true
+  greenhouse_verified: true
+  api_url: https://boards-api.greenhouse.io/v1/boards/affirm/jobs
+  job_count: 173
+- name: Marqeta
+  tier: 2
+  board_token: marqeta
+  enabled: true
+  greenhouse_verified: true
+  api_url: https://boards-api.greenhouse.io/v1/boards/marqeta/jobs
+  job_count: 41
+- name: Adyen
+  tier: 2
+  board_token: adyen
+  enabled: true
+  greenhouse_verified: true
+  api_url: https://boards-api.greenhouse.io/v1/boards/adyen/jobs
+  job_count: 208
+- name: Wise
+  tier: 2
+  board_token: wise
+  enabled: false
+  greenhouse_verified: false
+  api_url: https://boards-api.greenhouse.io/v1/boards/wise/jobs
+  notes: Not on Greenhouse (API probe returned 404)
+- name: Klarna
+  tier: 2
+  board_token: klarna
+  enabled: false
+  greenhouse_verified: false
+  api_url: https://boards-api.greenhouse.io/v1/boards/klarna/jobs
+  notes: Not on Greenhouse (API probe returned 404)
+- name: Mercury
+  tier: 2
+  board_token: mercury
+  enabled: true
+  greenhouse_verified: true
+  api_url: https://boards-api.greenhouse.io/v1/boards/mercury/jobs
+  job_count: 56
+- name: Lyft
+  tier: 2
+  board_token: lyft
+  enabled: true
+  greenhouse_verified: true
+  api_url: https://boards-api.greenhouse.io/v1/boards/lyft/jobs
+  job_count: 148
+- name: DoorDash
+  tier: 2
+  board_token: doordash
+  enabled: false
+  greenhouse_verified: false
+  api_url: https://boards-api.greenhouse.io/v1/boards/doordash/jobs
+  notes: Not on Greenhouse (API probe returned 404)
+- name: Instacart
+  tier: 2
+  board_token: instacart
+  enabled: true
+  greenhouse_verified: true
+  api_url: https://boards-api.greenhouse.io/v1/boards/instacart/jobs
+  job_count: 119
+- name: Expedia
+  tier: 2
+  board_token: expedia
+  enabled: false
+  greenhouse_verified: false
+  api_url: https://boards-api.greenhouse.io/v1/boards/expedia/jobs
+  notes: Not on Greenhouse (API probe returned 404)
+- name: Booking.com
+  tier: 2
+  board_token: booking
+  enabled: false
+  greenhouse_verified: false
+  api_url: https://boards-api.greenhouse.io/v1/boards/booking/jobs
+  notes: Not on Greenhouse (API probe returned 404)
+- name: Booking Holdings
+  tier: 2
+  board_token: bookingholdings
+  enabled: false
+  greenhouse_verified: false
+  api_url: https://boards-api.greenhouse.io/v1/boards/bookingholdings/jobs
+  notes: Not on Greenhouse (API probe returned 404)
+- name: Expedia Group
+  tier: 2
+  board_token: expediagroup
+  enabled: false
+  greenhouse_verified: false
+  api_url: https://boards-api.greenhouse.io/v1/boards/expediagroup/jobs
+  notes: Not on Greenhouse (API probe returned 404)
+- name: Reddit
+  tier: 2
+  board_token: reddit
+  enabled: true
+  greenhouse_verified: true
+  api_url: https://boards-api.greenhouse.io/v1/boards/reddit/jobs
+  job_count: 192
+- name: Pinterest
+  tier: 2
+  board_token: pinterest
+  enabled: true
+  greenhouse_verified: true
+  api_url: https://boards-api.greenhouse.io/v1/boards/pinterest/jobs
+  job_count: 192
+- name: Disney
+  tier: 2
+  board_token: disney
+  enabled: true
+  greenhouse_verified: true
+  api_url: https://boards-api.greenhouse.io/v1/boards/disney/jobs
+  job_count: 2
+- name: Roku
+  tier: 2
+  board_token: roku
+  enabled: true
+  greenhouse_verified: true
+  api_url: https://boards-api.greenhouse.io/v1/boards/roku/jobs
+  job_count: 233
+- name: Twitch
+  tier: 2
+  board_token: twitch
+  enabled: true
+  greenhouse_verified: true
+  api_url: https://boards-api.greenhouse.io/v1/boards/twitch/jobs
+  job_count: 62
+- name: Wayfair
+  tier: 2
+  board_token: wayfair
+  enabled: false
+  greenhouse_verified: false
+  api_url: https://boards-api.greenhouse.io/v1/boards/wayfair/jobs
+  notes: Not on Greenhouse (API probe returned 404)
+- name: Etsy
+  tier: 2
+  board_token: etsy
+  enabled: false
+  greenhouse_verified: false
+  api_url: https://boards-api.greenhouse.io/v1/boards/etsy/jobs
+  notes: Not on Greenhouse (API probe returned 404)
+- name: eBay
+  tier: 2
+  board_token: ebay
+  enabled: false
+  greenhouse_verified: false
+  api_url: https://boards-api.greenhouse.io/v1/boards/ebay/jobs
+  notes: Not on Greenhouse (API probe returned 404)
+- name: Chewy
+  tier: 2
+  board_token: chewy
+  enabled: false
+  greenhouse_verified: false
+  api_url: https://boards-api.greenhouse.io/v1/boards/chewy/jobs
+  notes: Not on Greenhouse (API probe returned 404)
+- name: Zillow
+  tier: 2
+  board_token: zillow
+  enabled: false
+  greenhouse_verified: false
+  api_url: https://boards-api.greenhouse.io/v1/boards/zillow/jobs
+  notes: Not on Greenhouse (API probe returned 404)
+- name: Realtor.com
+  tier: 2
+  board_token: realtor
+  enabled: false
+  greenhouse_verified: false
+  api_url: https://boards-api.greenhouse.io/v1/boards/realtor/jobs
+  notes: Not on Greenhouse (API probe returned 404)
+- name: Kayak
+  tier: 2
+  board_token: kayak
+  enabled: true
+  greenhouse_verified: true
+  api_url: https://boards-api.greenhouse.io/v1/boards/kayak/jobs
+  job_count: 1
+- name: Yelp
+  tier: 2
+  board_token: yelp
+  enabled: false
+  greenhouse_verified: false
+  api_url: https://boards-api.greenhouse.io/v1/boards/yelp/jobs
+  notes: Not on Greenhouse (API probe returned 404)
+- name: Bolt
+  tier: 2
+  board_token: bolt
+  enabled: false
+  greenhouse_verified: false
+  api_url: https://boards-api.greenhouse.io/v1/boards/bolt/jobs
+  notes: Not on Greenhouse (API probe returned 404)
+- name: Roblox
+  tier: 2
+  board_token: roblox
+  enabled: true
+  greenhouse_verified: true
+  api_url: https://boards-api.greenhouse.io/v1/boards/roblox/jobs
+  job_count: 223
+- name: SoundCloud
+  tier: 2
+  board_token: soundcloud
+  enabled: false
+  greenhouse_verified: false
+  api_url: https://boards-api.greenhouse.io/v1/boards/soundcloud/jobs
+  notes: Not on Greenhouse (API probe returned 404)
+- name: Bidease
+  tier: 2
+  board_token: bidease
+  enabled: true
+  greenhouse_verified: true
+  api_url: https://boards-api.greenhouse.io/v1/boards/bidease/jobs
+  job_count: 4
+- name: Walmart Global Tech
+  tier: 3
+  board_token: walmart
+  enabled: false
+  greenhouse_verified: false
+  api_url: https://boards-api.greenhouse.io/v1/boards/walmart/jobs
+  notes: Not on Greenhouse (API probe returned 404)
+- name: Target
+  tier: 3
+  board_token: target
+  enabled: false
+  greenhouse_verified: false
+  api_url: https://boards-api.greenhouse.io/v1/boards/target/jobs
+  notes: Not on Greenhouse (API probe returned 404)
+- name: Costco
+  tier: 3
+  board_token: costco
+  enabled: false
+  greenhouse_verified: false
+  api_url: https://boards-api.greenhouse.io/v1/boards/costco/jobs
+  notes: Not on Greenhouse (API probe returned 404)
+- name: Best Buy
+  tier: 3
+  board_token: bestbuy
+  enabled: false
+  greenhouse_verified: false
+  api_url: https://boards-api.greenhouse.io/v1/boards/bestbuy/jobs
+  notes: Not on Greenhouse (API probe returned 404)
+- name: Nike
+  tier: 3
+  board_token: nike
+  enabled: false
+  greenhouse_verified: false
+  api_url: https://boards-api.greenhouse.io/v1/boards/nike/jobs
+  notes: Not on Greenhouse (API probe returned 404)
+- name: Lululemon
+  tier: 3
+  board_token: lululemon
+  enabled: false
+  greenhouse_verified: false
+  api_url: https://boards-api.greenhouse.io/v1/boards/lululemon/jobs
+  notes: Not on Greenhouse (API probe returned 404)
+- name: PepsiCo
+  tier: 3
+  board_token: pepsico
+  enabled: false
+  greenhouse_verified: false
+  api_url: https://boards-api.greenhouse.io/v1/boards/pepsico/jobs
+  notes: Not on Greenhouse (API probe returned 404)
+- name: Starbucks
+  tier: 3
+  board_token: starbucks
+  enabled: false
+  greenhouse_verified: false
+  api_url: https://boards-api.greenhouse.io/v1/boards/starbucks/jobs
+  notes: Not on Greenhouse (API probe returned 404)
+- name: Procter & Gamble
+  tier: 3
+  board_token: pg
+  enabled: false
+  greenhouse_verified: false
+  api_url: https://boards-api.greenhouse.io/v1/boards/pg/jobs
+  notes: Not on Greenhouse (API probe returned 404)
+- name: General Mills
+  tier: 3
+  board_token: generalmills
+  enabled: false
+  greenhouse_verified: false
+  api_url: https://boards-api.greenhouse.io/v1/boards/generalmills/jobs
+  notes: Not on Greenhouse (API probe returned 404)
+- name: Mondelez
+  tier: 3
+  board_token: mondelez
+  enabled: false
+  greenhouse_verified: false
+  api_url: https://boards-api.greenhouse.io/v1/boards/mondelez/jobs
+  notes: Not on Greenhouse (API probe returned 404)
+- name: Nestlé
+  tier: 3
+  board_token: nestle
+  enabled: false
+  greenhouse_verified: false
+  api_url: https://boards-api.greenhouse.io/v1/boards/nestle/jobs
+  notes: Not on Greenhouse (API probe returned 404)
+- name: Unilever
+  tier: 3
+  board_token: unilever
+  enabled: true
+  greenhouse_verified: true
+  api_url: https://boards-api.greenhouse.io/v1/boards/unilever/jobs
+  job_count: 0
+  notes: 'Greenhouse board verified (token: unilever)'
+- name: Colgate-Palmolive
+  tier: 3
+  board_token: colgate
+  enabled: false
+  greenhouse_verified: false
+  api_url: https://boards-api.greenhouse.io/v1/boards/colgate/jobs
+  notes: Not on Greenhouse (API probe returned 404)
+- name: Kimberly-Clark
+  tier: 3
+  board_token: kimberlyclark
+  enabled: false
+  greenhouse_verified: false
+  api_url: https://boards-api.greenhouse.io/v1/boards/kimberlyclark/jobs
+  notes: Not on Greenhouse (API probe returned 404)
+- name: Mars
+  tier: 3
+  board_token: mars
+  enabled: false
+  greenhouse_verified: false
+  api_url: https://boards-api.greenhouse.io/v1/boards/mars/jobs
+  notes: Not on Greenhouse (API probe returned 404)
+- name: Danone
+  tier: 3
+  board_token: danone
+  enabled: false
+  greenhouse_verified: false
+  api_url: https://boards-api.greenhouse.io/v1/boards/danone/jobs
+  notes: Not on Greenhouse (API probe returned 404)
+- name: Coca-Cola
+  tier: 3
+  board_token: coca-cola
+  enabled: false
+  greenhouse_verified: false
+  api_url: https://boards-api.greenhouse.io/v1/boards/coca-cola/jobs
+  notes: Not on Greenhouse (API probe returned 404)
+- name: AWS
+  tier: 2
+  board_token: aws
+  enabled: false
+  greenhouse_verified: false
+  api_url: https://boards-api.greenhouse.io/v1/boards/aws/jobs
+  notes: Not on Greenhouse (API probe returned 404)
+- name: Google Cloud
+  tier: 2
+  board_token: googlecloud
+  enabled: false
+  greenhouse_verified: false
+  api_url: https://boards-api.greenhouse.io/v1/boards/googlecloud/jobs
+  notes: Not on Greenhouse (API probe returned 404)
+- name: Microsoft Azure
+  tier: 2
+  board_token: microsoftazure
+  enabled: false
+  greenhouse_verified: false
+  api_url: https://boards-api.greenhouse.io/v1/boards/microsoftazure/jobs
+  notes: Not on Greenhouse (API probe returned 404)
+- name: Akamai
+  tier: 2
+  board_token: akamai
+  enabled: false
+  greenhouse_verified: false
+  api_url: https://boards-api.greenhouse.io/v1/boards/akamai/jobs
+  notes: Not on Greenhouse (API probe returned 404)
+- name: Fastly
+  tier: 2
+  board_token: fastly
+  enabled: true
+  greenhouse_verified: true
+  api_url: https://boards-api.greenhouse.io/v1/boards/fastly/jobs
+  job_count: 51
+- name: DigitalOcean
+  tier: 2
+  board_token: digitalocean
+  enabled: false
+  greenhouse_verified: false
+  api_url: https://boards-api.greenhouse.io/v1/boards/digitalocean/jobs
+  notes: Not on Greenhouse (API probe returned 404)
+- name: Red Hat
+  tier: 2
+  board_token: redhat
+  enabled: false
+  greenhouse_verified: false
+  api_url: https://boards-api.greenhouse.io/v1/boards/redhat/jobs
+  notes: Not on Greenhouse (API probe returned 404)
+- name: SUSE
+  tier: 2
+  board_token: suse
+  enabled: false
+  greenhouse_verified: false
+  api_url: https://boards-api.greenhouse.io/v1/boards/suse/jobs
+  notes: Not on Greenhouse (API probe returned 404)
+- name: Pure Storage
+  tier: 2
+  board_token: purestorage
+  enabled: true
+  greenhouse_verified: true
+  api_url: https://boards-api.greenhouse.io/v1/boards/purestorage/jobs
+  job_count: 324
+- name: NetApp
+  tier: 2
+  board_token: netapp
+  enabled: false
+  greenhouse_verified: false
+  api_url: https://boards-api.greenhouse.io/v1/boards/netapp/jobs
+  notes: Not on Greenhouse (API probe returned 404)
+- name: Veeam
+  tier: 2
+  board_token: veeam
+  enabled: false
+  greenhouse_verified: false
+  api_url: https://boards-api.greenhouse.io/v1/boards/veeam/jobs
+  notes: Not on Greenhouse (API probe returned 404)
+- name: Nutanix
+  tier: 2
+  board_token: nutanix
+  enabled: false
+  greenhouse_verified: false
+  api_url: https://boards-api.greenhouse.io/v1/boards/nutanix/jobs
+  notes: Not on Greenhouse (API probe returned 404)
+- name: Rubrik
+  tier: 2
+  board_token: rubrik
+  enabled: true
+  greenhouse_verified: true
+  api_url: https://boards-api.greenhouse.io/v1/boards/rubrik/jobs
+  job_count: 99
+- name: Verkada
+  tier: 2
+  board_token: verkada
+  enabled: true
+  greenhouse_verified: true
+  api_url: https://boards-api.greenhouse.io/v1/boards/verkada/jobs
+  job_count: 276
+- name: Starburst
+  tier: 2
+  board_token: starburst
+  enabled: true
+  greenhouse_verified: true
+  api_url: https://boards-api.greenhouse.io/v1/boards/starburst/jobs
+  job_count: 15
+- name: Amperity
+  tier: 2
+  board_token: amperity
+  enabled: true
+  greenhouse_verified: true
+  api_url: https://boards-api.greenhouse.io/v1/boards/amperity/jobs
+  job_count: 18
+- name: NVIDIA
+  tier: 3
+  board_token: nvidia
+  enabled: false
+  greenhouse_verified: false
+  api_url: https://boards-api.greenhouse.io/v1/boards/nvidia/jobs
+  notes: Not on Greenhouse (API probe returned 404)
+- name: Qualcomm
+  tier: 3
+  board_token: qualcomm
+  enabled: false
+  greenhouse_verified: false
+  api_url: https://boards-api.greenhouse.io/v1/boards/qualcomm/jobs
+  notes: Not on Greenhouse (API probe returned 404)
+- name: AMD
+  tier: 3
+  board_token: amd
+  enabled: false
+  greenhouse_verified: false
+  api_url: https://boards-api.greenhouse.io/v1/boards/amd/jobs
+  notes: Not on Greenhouse (API probe returned 404)
+- name: Intel
+  tier: 3
+  board_token: intel
+  enabled: false
+  greenhouse_verified: false
+  api_url: https://boards-api.greenhouse.io/v1/boards/intel/jobs
+  notes: Not on Greenhouse (API probe returned 404)
+- name: Arm
+  tier: 3
+  board_token: arm
+  enabled: false
+  greenhouse_verified: false
+  api_url: https://boards-api.greenhouse.io/v1/boards/arm/jobs
+  notes: Not on Greenhouse (API probe returned 404)
+- name: Micron
+  tier: 3
+  board_token: micron
+  enabled: false
+  greenhouse_verified: false
+  api_url: https://boards-api.greenhouse.io/v1/boards/micron/jobs
+  notes: Not on Greenhouse (API probe returned 404)
+- name: Texas Instruments
+  tier: 3
+  board_token: texasinstruments
+  enabled: false
+  greenhouse_verified: false
+  api_url: https://boards-api.greenhouse.io/v1/boards/texasinstruments/jobs
+  notes: Not on Greenhouse (API probe returned 404)
+- name: Synopsys
+  tier: 3
+  board_token: synopsys
+  enabled: false
+  greenhouse_verified: false
+  api_url: https://boards-api.greenhouse.io/v1/boards/synopsys/jobs
+  notes: Not on Greenhouse (API probe returned 404)
+- name: Cadence
+  tier: 3
+  board_token: cadence
+  enabled: false
+  greenhouse_verified: false
+  api_url: https://boards-api.greenhouse.io/v1/boards/cadence/jobs
+  notes: Not on Greenhouse (API probe returned 404)
+- name: Marvell
+  tier: 3
+  board_token: marvell
+  enabled: false
+  greenhouse_verified: false
+  api_url: https://boards-api.greenhouse.io/v1/boards/marvell/jobs
+  notes: Not on Greenhouse (API probe returned 404)
+- name: Broadcom
+  tier: 3
+  board_token: broadcom
+  enabled: false
+  greenhouse_verified: false
+  api_url: https://boards-api.greenhouse.io/v1/boards/broadcom/jobs
+  notes: Not on Greenhouse (API probe returned 404)
+- name: Seagate
+  tier: 3
+  board_token: seagate
+  enabled: false
+  greenhouse_verified: false
+  api_url: https://boards-api.greenhouse.io/v1/boards/seagate/jobs
+  notes: Not on Greenhouse (API probe returned 404)
+- name: Western Digital
+  tier: 3
+  board_token: westerndigital
+  enabled: false
+  greenhouse_verified: false
+  api_url: https://boards-api.greenhouse.io/v1/boards/westerndigital/jobs
+  notes: Not on Greenhouse (API probe returned 404)
+- name: Onsemi
+  tier: 3
+  board_token: onsemi
+  enabled: false
+  greenhouse_verified: false
+  api_url: https://boards-api.greenhouse.io/v1/boards/onsemi/jobs
+  notes: Not on Greenhouse (API probe returned 404)
+- name: Cisco
+  tier: 3
+  board_token: cisco
+  enabled: false
+  greenhouse_verified: false
+  api_url: https://boards-api.greenhouse.io/v1/boards/cisco/jobs
+  notes: Not on Greenhouse (API probe returned 404)
+- name: Juniper Networks
+  tier: 3
+  board_token: juniper
+  enabled: false
+  greenhouse_verified: false
+  api_url: https://boards-api.greenhouse.io/v1/boards/juniper/jobs
+  notes: Not on Greenhouse (API probe returned 404)
+- name: Lenovo
+  tier: 3
+  board_token: lenovo
+  enabled: false
+  greenhouse_verified: false
+  api_url: https://boards-api.greenhouse.io/v1/boards/lenovo/jobs
+  notes: Not on Greenhouse (API probe returned 404)
+- name: Dell Technologies
+  tier: 3
+  board_token: dell
+  enabled: false
+  greenhouse_verified: false
+  api_url: https://boards-api.greenhouse.io/v1/boards/dell/jobs
+  notes: Not on Greenhouse (API probe returned 404)
+- name: HP
+  tier: 3
+  board_token: hp
+  enabled: false
+  greenhouse_verified: false
+  api_url: https://boards-api.greenhouse.io/v1/boards/hp/jobs
+  notes: Not on Greenhouse (API probe returned 404)
+- name: HPE
+  tier: 3
+  board_token: hpe
+  enabled: false
+  greenhouse_verified: false
+  api_url: https://boards-api.greenhouse.io/v1/boards/hpe/jobs
+  notes: Not on Greenhouse (API probe returned 404)
+- name: VMware by Broadcom
+  tier: 3
+  board_token: vmware
+  enabled: false
+  greenhouse_verified: false
+  api_url: https://boards-api.greenhouse.io/v1/boards/vmware/jobs
+  notes: Not on Greenhouse (API probe returned 404)
+- name: Samsung
+  tier: 3
+  board_token: samsung
+  enabled: false
+  greenhouse_verified: false
+  api_url: https://boards-api.greenhouse.io/v1/boards/samsung/jobs
+  notes: Not on Greenhouse (API probe returned 404)
+- name: Samsung Research America
+  tier: 3
+  board_token: samsungresearchamerica
+  enabled: true
+  greenhouse_verified: true
+  api_url: https://boards-api.greenhouse.io/v1/boards/samsungresearchamerica/jobs
+  job_count: 18
+  notes: Token is samsungresearchamerica
+- name: Logitech
+  tier: 3
+  board_token: logitech
+  enabled: false
+  greenhouse_verified: false
+  api_url: https://boards-api.greenhouse.io/v1/boards/logitech/jobs
+  notes: Not on Greenhouse (API probe returned 404)
+- name: Sony Interactive Entertainment
+  tier: 3
+  board_token: sonyinteractive
+  enabled: false
+  greenhouse_verified: false
+  api_url: https://boards-api.greenhouse.io/v1/boards/sonyinteractive/jobs
+  notes: Not on Greenhouse (API probe returned 404)
+- name: Sony PlayStation
+  tier: 3
+  board_token: playstation
+  enabled: false
+  greenhouse_verified: false
+  api_url: https://boards-api.greenhouse.io/v1/boards/playstation/jobs
+  notes: Not on Greenhouse (API probe returned 404)
+- name: Tesla
+  tier: 2
+  board_token: tesla
+  enabled: false
+  greenhouse_verified: false
+  api_url: https://boards-api.greenhouse.io/v1/boards/tesla/jobs
+  notes: Not on Greenhouse (API probe returned 404)
+- name: Rivian
+  tier: 2
+  board_token: rivian
+  enabled: false
+  greenhouse_verified: false
+  api_url: https://boards-api.greenhouse.io/v1/boards/rivian/jobs
+  notes: Not on Greenhouse (API probe returned 404)
+- name: Lucid
+  tier: 2
+  board_token: lucidmotors
+  enabled: true
+  greenhouse_verified: true
+  api_url: https://boards-api.greenhouse.io/v1/boards/lucidmotors/jobs
+  job_count: 277
+  notes: Token is lucidmotors (not lucid)
+- name: Waymo
+  tier: 2
+  board_token: waymo
+  enabled: true
+  greenhouse_verified: true
+  api_url: https://boards-api.greenhouse.io/v1/boards/waymo/jobs
+  job_count: 399
+- name: Zoox
+  tier: 2
+  board_token: zoox
+  enabled: false
+  greenhouse_verified: false
+  api_url: https://boards-api.greenhouse.io/v1/boards/zoox/jobs
+  notes: Not on Greenhouse (API probe returned 404)
+- name: Cruise
+  tier: 2
+  board_token: cruise
+  enabled: false
+  greenhouse_verified: false
+  api_url: https://boards-api.greenhouse.io/v1/boards/cruise/jobs
+  notes: Not on Greenhouse (API probe returned 404)
+- name: Aurora
+  tier: 2
+  board_token: aurora
+  enabled: false
+  greenhouse_verified: false
+  api_url: https://boards-api.greenhouse.io/v1/boards/aurora/jobs
+  notes: Not on Greenhouse (API probe returned 404)
+- name: Motional
+  tier: 2
+  board_token: motional
+  enabled: true
+  greenhouse_verified: true
+  api_url: https://boards-api.greenhouse.io/v1/boards/motional/jobs
+  job_count: 113
+- name: Hinge Health
+  tier: 2
+  board_token: hingehealth
+  enabled: false
+  greenhouse_verified: false
+  api_url: https://boards-api.greenhouse.io/v1/boards/hingehealth/jobs
+  notes: Not on Greenhouse (API probe returned 404)
+- name: Omada Health
+  tier: 2
+  board_token: omadahealth
+  enabled: true
+  greenhouse_verified: true
+  api_url: https://boards-api.greenhouse.io/v1/boards/omadahealth/jobs
+  job_count: 29
+- name: Teladoc
+  tier: 2
+  board_token: teladoc
+  enabled: false
+  greenhouse_verified: false
+  api_url: https://boards-api.greenhouse.io/v1/boards/teladoc/jobs
+  notes: Not on Greenhouse (API probe returned 404)
+- name: Flatiron Health
+  tier: 2
+  board_token: flatironhealth
+  enabled: true
+  greenhouse_verified: true
+  api_url: https://boards-api.greenhouse.io/v1/boards/flatironhealth/jobs
+  job_count: 32
+  notes: Token is flatironhealth
+- name: Dexcom
+  tier: 2
+  board_token: dexcom
+  enabled: false
+  greenhouse_verified: false
+  api_url: https://boards-api.greenhouse.io/v1/boards/dexcom/jobs
+  notes: Not on Greenhouse (API probe returned 404)
+- name: Abbott
+  tier: 2
+  board_token: abbott
+  enabled: false
+  greenhouse_verified: false
+  api_url: https://boards-api.greenhouse.io/v1/boards/abbott/jobs
+  notes: Not on Greenhouse (API probe returned 404)
+- name: Medtronic
+  tier: 2
+  board_token: medtronic
+  enabled: false
+  greenhouse_verified: false
+  api_url: https://boards-api.greenhouse.io/v1/boards/medtronic/jobs
+  notes: Not on Greenhouse (API probe returned 404)
+- name: Stryker
+  tier: 2
+  board_token: stryker
+  enabled: false
+  greenhouse_verified: false
+  api_url: https://boards-api.greenhouse.io/v1/boards/stryker/jobs
+  notes: Not on Greenhouse (API probe returned 404)
+- name: GE HealthCare
+  tier: 2
+  board_token: gehealthcare
+  enabled: false
+  greenhouse_verified: false
+  api_url: https://boards-api.greenhouse.io/v1/boards/gehealthcare/jobs
+  notes: Not on Greenhouse (API probe returned 404)
+- name: Philips
+  tier: 2
+  board_token: philips
+  enabled: false
+  greenhouse_verified: false
+  api_url: https://boards-api.greenhouse.io/v1/boards/philips/jobs
+  notes: Not on Greenhouse (API probe returned 404)
+- name: Align
+  tier: 2
+  board_token: align
+  enabled: true
+  greenhouse_verified: true
+  api_url: https://boards-api.greenhouse.io/v1/boards/align/jobs
+  job_count: 12
+- name: Delta Air Lines
+  tier: 3
+  board_token: delta
+  enabled: false
+  greenhouse_verified: false
+  api_url: https://boards-api.greenhouse.io/v1/boards/delta/jobs
+  notes: Not on Greenhouse (API probe returned 404)
+- name: United Airlines
+  tier: 3
+  board_token: united
+  enabled: false
+  greenhouse_verified: false
+  api_url: https://boards-api.greenhouse.io/v1/boards/united/jobs
+  notes: Not on Greenhouse (API probe returned 404)
+- name: American Airlines
+  tier: 3
+  board_token: americanairlines
+  enabled: false
+  greenhouse_verified: false
+  api_url: https://boards-api.greenhouse.io/v1/boards/americanairlines/jobs
+  notes: Not on Greenhouse (API probe returned 404)
+- name: Marriott
+  tier: 3
+  board_token: marriott
+  enabled: false
+  greenhouse_verified: false
+  api_url: https://boards-api.greenhouse.io/v1/boards/marriott/jobs
+  notes: Not on Greenhouse (API probe returned 404)
+- name: Hilton
+  tier: 3
+  board_token: hilton
+  enabled: false
+  greenhouse_verified: false
+  api_url: https://boards-api.greenhouse.io/v1/boards/hilton/jobs
+  notes: Not on Greenhouse (API probe returned 404)
+- name: Hyatt
+  tier: 3
+  board_token: hyatt
+  enabled: false
+  greenhouse_verified: false
+  api_url: https://boards-api.greenhouse.io/v1/boards/hyatt/jobs
+  notes: Not on Greenhouse (API probe returned 404)
+- name: Comcast
+  tier: 3
+  board_token: comcast
+  enabled: false
+  greenhouse_verified: false
+  api_url: https://boards-api.greenhouse.io/v1/boards/comcast/jobs
+  notes: Not on Greenhouse (API probe returned 404)
+- name: Verizon
+  tier: 3
+  board_token: verizon
+  enabled: false
+  greenhouse_verified: false
+  api_url: https://boards-api.greenhouse.io/v1/boards/verizon/jobs
+  notes: Not on Greenhouse (API probe returned 404)
+- name: AT&T
+  tier: 3
+  board_token: att
+  enabled: false
+  greenhouse_verified: false
+  api_url: https://boards-api.greenhouse.io/v1/boards/att/jobs
+  notes: Not on Greenhouse (API probe returned 404)
+- name: T-Mobile
+  tier: 3
+  board_token: tmobile
+  enabled: false
+  greenhouse_verified: false
+  api_url: https://boards-api.greenhouse.io/v1/boards/tmobile/jobs
+  notes: Not on Greenhouse (API probe returned 404)
+- name: Warner Bros. Discovery
+  tier: 3
+  board_token: wbd
+  enabled: false
+  greenhouse_verified: false
+  api_url: https://boards-api.greenhouse.io/v1/boards/wbd/jobs
+  notes: Not on Greenhouse (API probe returned 404)
+- name: Paramount
+  tier: 3
+  board_token: paramount
+  enabled: false
+  greenhouse_verified: false
+  api_url: https://boards-api.greenhouse.io/v1/boards/paramount/jobs
+  notes: Not on Greenhouse (API probe returned 404)
+- name: NBCUniversal
+  tier: 3
+  board_token: nbcuniversal
+  enabled: false
+  greenhouse_verified: false
+  api_url: https://boards-api.greenhouse.io/v1/boards/nbcuniversal/jobs
+  notes: Not on Greenhouse (API probe returned 404)
+- name: Electronic Arts
+  tier: 3
+  board_token: ea
+  enabled: false
+  greenhouse_verified: false
+  api_url: https://boards-api.greenhouse.io/v1/boards/ea/jobs
+  notes: Not on Greenhouse (API probe returned 404)
+- name: Epic Games
+  tier: 3
+  board_token: epicgames
+  enabled: true
+  greenhouse_verified: true
+  api_url: https://boards-api.greenhouse.io/v1/boards/epicgames/jobs
+  job_count: 131
+- name: Riot Games
+  tier: 3
+  board_token: riotgames
+  enabled: true
+  greenhouse_verified: true
+  api_url: https://boards-api.greenhouse.io/v1/boards/riotgames/jobs
+  job_count: 163
+- name: Oracle
+  tier: 3
+  board_token: oracle
+  enabled: false
+  greenhouse_verified: false
+  api_url: https://boards-api.greenhouse.io/v1/boards/oracle/jobs
+  notes: Not on Greenhouse (API probe returned 404)
+- name: SAP
+  tier: 3
+  board_token: sap
+  enabled: false
+  greenhouse_verified: false
+  api_url: https://boards-api.greenhouse.io/v1/boards/sap/jobs
+  notes: Not on Greenhouse (API probe returned 404)
+- name: IBM
+  tier: 3
+  board_token: ibm
+  enabled: false
+  greenhouse_verified: false
+  api_url: https://boards-api.greenhouse.io/v1/boards/ibm/jobs
+  notes: Not on Greenhouse (API probe returned 404)
+- name: Qualys
+  tier: 3
+  board_token: qualys
+  enabled: false
+  greenhouse_verified: false
+  api_url: https://boards-api.greenhouse.io/v1/boards/qualys/jobs
+  notes: Not on Greenhouse (API probe returned 404)
+- name: SentinelOne
+  tier: 3
+  board_token: sentinelone
+  enabled: false
+  greenhouse_verified: false
+  api_url: https://boards-api.greenhouse.io/v1/boards/sentinelone/jobs
+  notes: Not on Greenhouse (API probe returned 404)
+- name: CrowdStrike
+  tier: 3
+  board_token: crowdstrike
+  enabled: false
+  greenhouse_verified: false
+  api_url: https://boards-api.greenhouse.io/v1/boards/crowdstrike/jobs
+  notes: Not on Greenhouse (API probe returned 404)
+- name: Trellix
+  tier: 3
+  board_token: trellix
+  enabled: false
+  greenhouse_verified: false
+  api_url: https://boards-api.greenhouse.io/v1/boards/trellix/jobs
+  notes: Not on Greenhouse (API probe returned 404)

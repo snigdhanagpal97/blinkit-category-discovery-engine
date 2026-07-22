@@ -1,0 +1,26 @@
+# Snigdha Nagpal — MBA internship matching profile
+# Source: https://snigdhan.com
+
+name: Snigdha Nagpal
+email: snagpal1997@gmail.com
+school: UNC Kenan-Flagler
+class_year: 2028
+target_season: Summer 2027
+
+background:
+  - 5+ years quick-commerce (Blinkit, Noon): dynamic pricing, demand forecasting, search conversion
+  - Product strategy, business analytics, data analytics
+  - Founded Purple Pixie Cakes D2C (10K+ orders)
+  - MBA focus: AI product management, tech strategy, AI adoption
+  - Skills: SQL, Python, product analytics, experimentation, data-driven decision-making
+
+target_roles:
+  - Product Management
+  - Strategy & Operations
+  - Growth
+  - AI/Product Strategy
+
+filters:
+  locations_us_only: true
+  max_days_since_posted: 7
+  min_match_score_for_email: 7

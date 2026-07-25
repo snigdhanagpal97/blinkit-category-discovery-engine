@@ -65,6 +65,57 @@ QUERY_FAMILIES = {
         r"\bbigbasket sells\b",
         r"\bavailable on blinkit\b",
         r"\bavailable on zepto\b",
+        # Hinglish / Hindi "you find it here / you can't find it elsewhere" —
+        # the same awareness signal as "didn't know they sold this", just
+        # phrased in code-switched or Devanagari text. Missing this pattern
+        # was the single largest recall gap in the original filter.
+        r"\bkahi nahi milta\b",
+        r"\bnahi milta (?:tha|hai)\b",
+        r"\bmilta (?:hai|tha|hain)\b",
+        r"\bmil jata (?:hai|tha)\b",
+        # NOTE: no \b around Devanagari — Python's word-boundary detection
+        # breaks around Devanagari vowel signs (matras), so anchored
+        # patterns silently fail to match script that's plainly there.
+        r"मिलता",
+        r"नहीं मिलता",
+        r"\bpehle nahi tha\b",
+        r"\bone finger tap\b",
+        r"\bcan'?t find\b",
+        r"\bnot available on (?:other|any other) apps?\b",
+        r"\bavailable in (?:varieties|variety)\b",
+        r"\bwant to (?:shop|buy|order|try)\b",
+        r"\bavailable (?:even|now|here)\b",
+    ],
+
+    # ---------------------------------------------------------------
+    # KNOW / EXPLORE — imperative recommendation language
+    # ("try X", "gotta try Y") — extremely common in YouTube comments
+    # replying to a haul/review video, and functionally the same
+    # discovery signal as "recommend" or "suggest", just imperative
+    # mood and almost never naming the platform explicitly (the video
+    # itself is the platform context).
+    # ---------------------------------------------------------------
+    "imperative_recommendation": [
+        r"\bu should try\b",
+        r"\byou should try\b",
+        r"\bgotta try\b",
+        r"\bdo try\b",
+        r"\bmust try\b",
+        r"\btry karo\b",
+        r"^try\b",
+        r"\btry(?:ing)? to (?:book|order|buy)\b",
+        r"\bbata do\b",
+    ],
+
+    # ---------------------------------------------------------------
+    # KNOW — implicit before/after assortment-breadth comparison
+    # ---------------------------------------------------------------
+    "assortment_before_after": [
+        r"\bnot many options\b",
+        r"\beverything you (?:can think of|need)\b",
+        r"\bnow (?:it |they )?(?:has|have) everything\b",
+        r"\bbefore there (?:was|were)\b",
+        r"\bi wish (?:u|you|they)?\s*(?:would have|had|stocked)\b",
     ],
 
     # ---------------------------------------------------------------
@@ -149,8 +200,7 @@ QUERY_FAMILIES = {
         r"\bauthentic\b",
         r"\bauthenticity\b",
         r"\bcounterfeit\b",
-        r"\btrust\b",
-        r"\btrusted\b",
+        r"\btrust\w*\b",
         r"\bquality\b",
         r"\bwarranty\b",
         r"\bguarantee\b",
